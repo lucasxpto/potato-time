@@ -59,6 +59,11 @@ class _SimplePomodoroState extends State<SimplePomodoro> {
     );
   }
 
+  void stopTimer() {
+    _timer.cancel();
+    player.stop();
+  }
+
   void resetTimer() {
     _timer.cancel();
     setState(() {
@@ -97,7 +102,7 @@ class _SimplePomodoroState extends State<SimplePomodoro> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                dispose();
+                stopTimer();
               },
               child: const Text('Cancelar'),
             ),
